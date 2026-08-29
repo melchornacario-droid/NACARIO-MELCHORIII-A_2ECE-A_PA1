@@ -49,6 +49,9 @@ def make_username(first_name, last_name):
     m = last_name.lower().replace(" ", "")
     user = [n, m]
     return ".".join(user)
+print(make_username("Ada", "Lovelace"))     
+print(make_username("Alan", "Turing"))        
+print(make_username("Ana Maria", "De Leon"))
 ```
 
 ## Problem 3 (BOOKEND SWAP PROBLEM)

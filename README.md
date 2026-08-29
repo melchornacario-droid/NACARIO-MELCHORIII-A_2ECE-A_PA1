@@ -3,23 +3,24 @@ Create a function that interchanges the first and last character in a string. Ke
 
 The following functions and methods were used in this problem:
 
-* `list()` - a built in function that converts a string into a list
+* `text[1:]` - a built in function that extracts all the characters from 2nd to the end of the string
 
-Example: `list("Craig")` --> `['C','r','a','i','g']`
+Example: `text="Craig"` `text[1:]` --> `['r','a','i','g']`
 
-* `"".join()` - A method to join the elements of an iterable(list) into a single string.
+* `text[0]` - A function to retrieve the first character in a string
   
-Example: `"".join(['C','r','a','i','g'])` --> `("Craig")`
+Example: `text[0]` --> `("C")`
 
 These functions were used to create a function that switches the first and last character of a string
 
 ```python
-def rotated_word(text):
-    n = list(text)
-    n[0], n[-1] = n[-1], n[0]
-    return "".join(n)
-
-print(rotated_word(input("Enter word: ")))```
+def rotate_word(text):
+    new_word=text[1:] + text[0]
+    return new_word
+print(rotate_word("python")) 
+print(rotate_word("logic")) 
+print(rotate_word("Code")) 
+print(rotate_word("A"))
 ```
 ## Problem 2 (USERNAME BUILDER PROBLEM)
 
@@ -55,21 +56,17 @@ def make_username(first_name, last_name):
 Create a function that unpacks a list into its first, last, and middle elements and switches the position of the first and last element.
 
 The following functions and methods were used in this problem:
-* `.split()`: A string method called on the result of `input()` to break the string into a list of separate items based on spaces.
+* `Extended Sequence Unpacking`: Unpacks the first element into first, the last element into last, and all elements between them into the list variable middle using the asterisk operator.
 
-  Example: `a = "ABC"` --> `a.split()` --> `['A','B','C']`
+  Example: `a = ['apple","banana"]` --> `first, *middle, last = a` --> `first="apple", middle=[], last="banana"`
 
 This function was used in creating a function that switches the first and last element of a list:
 
 ```python
-def swap_bookends(lst):
-    first = lst[0]
-    second = lst[1:-1]
-    third = lst[-1]
-    swap = [third] + second + [first]
-    return swap
-
-print(swap_bookends(input("Enter Items Separated by Spaces: ").split()))
-x = input("First Name: ")
-y = input("Last Name: ")
-print(make_username(x, y))
+def swap_bookends(items):
+    first, *middle, last = items
+    return [last, *middle, first]
+print(swap_bookends([1, 2, 3, 4, 5, 6]))  
+print(swap_bookends(["red", "green", "blue"])) 
+print(swap_bookends([8, 3]))
+```
